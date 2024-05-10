@@ -1,4 +1,6 @@
-﻿string input = @" toggle 461,550 through 564,900
+﻿using System.Diagnostics;
+
+string input = @" toggle 461,550 through 564,900
 turn off 370,39 through 425,839
 turn off 464,858 through 833,915
 turn off 812,389 through 865,874
@@ -299,7 +301,35 @@ turn off 209,780 through 572,894
 turn on 766,112 through 792,868
 turn on 222,12 through 856,241";
 
-foreach(string command in input.Split('\n') )  
+foreach(string cmd in input.Split('\n') )  
 {
+    string[] cmdParts = cmd.Split(' ');
+    string startStr = cmdParts[cmdParts.Length -3];
+    string endStr = cmdParts[cmdParts.Length -1];
+    Command command;
+    if(cmd.Contains("off")) command = Command.Off;
+    else if(cmd.Contains("on")) command = Command.On;
+    else if(cmd.Contains("toggle")) command = Command.Toggle;
+    else continue;
 
+    Console.WriteLine(cmd + " | " + command);
+
+    Pos start = new Pos()
+    {
+        x = 0,
+        y = 0
+
+    };
+}
+
+enum Command {
+    On,
+    Off,
+    Toggle
+}
+
+struct Pos
+{
+    public int x;
+    public int y;
 }
