@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/utsaa-06/Documents/aoc/drew/drew.csproj": {}
+    "/Users/leesacademy/Desktop/AOC/drew/drew.csproj": {}
   },
   "projects": {
-    "/Users/utsaa-06/Documents/aoc/drew/drew.csproj": {
+    "/Users/leesacademy/Desktop/AOC/drew/drew.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/utsaa-06/Documents/aoc/drew/drew.csproj",
+        "projectUniqueName": "/Users/leesacademy/Desktop/AOC/drew/drew.csproj",
         "projectName": "drew",
-        "projectPath": "/Users/utsaa-06/Documents/aoc/drew/drew.csproj",
-        "packagesPath": "/Users/utsaa-06/.nuget/packages/",
-        "outputPath": "/Users/utsaa-06/Documents/aoc/drew/obj/",
+        "projectPath": "/Users/leesacademy/Desktop/AOC/drew/drew.csproj",
+        "packagesPath": "/Users/leesacademy/.nuget/packages/",
+        "outputPath": "/Users/leesacademy/Desktop/AOC/drew/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/utsaa-06/.nuget/NuGet/NuGet.Config"
+          "/Users/leesacademy/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

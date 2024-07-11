@@ -1,4 +1,4 @@
-﻿input @"sszojmmrrkwuftyv
+﻿string input = @"sszojmmrrkwuftyv
 isaljhemltsdzlum
 fujcyucsrxgatisb
 qiqqlmcgnhzparyg
@@ -1005,12 +1005,12 @@ foreach(string name in input.Split('\n'))
     int vowel = 0;
     bool doubles = false;
     bool bad = false;
-    for(int i; i < name.Length; i++)
+    for(int i = 0; i < name.Length; i++)
     {
         char letter = name[i];
-        if("aeiou".contains(letter))
+        if("aeiou".Contains(letter))
         {
-            vowel++
+            vowel++;
         }
         if(i > 0)
         {
@@ -1027,9 +1027,8 @@ foreach(string name in input.Split('\n'))
     }
     if(vowel >= 3 && doubles && !bad)
     {
-        goodies++
+        goodies++;
     }
     
 }
-Console.WriteLine(a+a)
-Console.WriteLine(goodies)
+Console.WriteLine(goodies);

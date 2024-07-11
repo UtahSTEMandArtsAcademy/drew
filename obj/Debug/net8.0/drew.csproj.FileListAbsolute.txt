@@ -1,0 +1,15 @@
+/Users/leesacademy/Desktop/AOC/drew/bin/Debug/net8.0/drew
+/Users/leesacademy/Desktop/AOC/drew/bin/Debug/net8.0/drew.deps.json
+/Users/leesacademy/Desktop/AOC/drew/bin/Debug/net8.0/drew.runtimeconfig.json
+/Users/leesacademy/Desktop/AOC/drew/bin/Debug/net8.0/drew.dll
+/Users/leesacademy/Desktop/AOC/drew/bin/Debug/net8.0/drew.pdb
+/Users/leesacademy/Desktop/AOC/drew/obj/Debug/net8.0/drew.GeneratedMSBuildEditorConfig.editorconfig
+/Users/leesacademy/Desktop/AOC/drew/obj/Debug/net8.0/drew.AssemblyInfoInputs.cache
+/Users/leesacademy/Desktop/AOC/drew/obj/Debug/net8.0/drew.AssemblyInfo.cs
+/Users/leesacademy/Desktop/AOC/drew/obj/Debug/net8.0/drew.csproj.CoreCompileInputs.cache
+/Users/leesacademy/Desktop/AOC/drew/obj/Debug/net8.0/drew.sourcelink.json
+/Users/leesacademy/Desktop/AOC/drew/obj/Debug/net8.0/drew.dll
+/Users/leesacademy/Desktop/AOC/drew/obj/Debug/net8.0/refint/drew.dll
+/Users/leesacademy/Desktop/AOC/drew/obj/Debug/net8.0/drew.pdb
+/Users/leesacademy/Desktop/AOC/drew/obj/Debug/net8.0/drew.genruntimeconfig.cache
+/Users/leesacademy/Desktop/AOC/drew/obj/Debug/net8.0/ref/drew.dll

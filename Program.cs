@@ -1,4 +1,4 @@
-﻿input @"sszojmmrrkwuftyv
+﻿string input = @"sszojmmrrkwuftyv
 isaljhemltsdzlum
 fujcyucsrxgatisb
 qiqqlmcgnhzparyg
@@ -998,38 +998,36 @@ bzukgvyoqewniivj
 iduapzclhhyfladn
 fbpyzxdfmkrtfaeg
 yzsmlbnftftgwadz";
-input = "";
+input = @"aaa
+aaaa
+aacaa
+aaaca
+aaacaa";
 int goodies = 0;
 foreach(string name in input.Split('\n'))
 {
-    int vowel = 0;
-    bool doubles = false;
-    bool bad = false;
-    for(int i; i < name.Length; i++)
+    bool skip = false;
+    string pair;
+    for(int i = 2; i < name.Length; i++)
     {
-        char letter = name[i];
-        if("aeiou".contains(letter))
+        Console.WriteLine("- " + name);
+        string tri = name.Substring(i-2, 3);
+        if(tri[0] == tri[2])
         {
-            vowel++
+
         }
-        if(i > 0)
+        if(tri[0] == tri[1])
         {
-            char prevLetter = name[i - 1];
-            if(letter == prevLetter)
-            {
-                doubles = true;
-            }
-            if(new List<string>(){"ab", "cd", "pq", "xy"}.Contains("" + prevLetter + letter))
-            {
-                bad = true;
-            }
+            pair = tri.Substring(0,2);
         }
+        else if(tri[1] == tri[2])
+        {
+            pair = tri.Substring(1,2);
+        }
+        Console.WriteLine(tri);
     }
-    if(vowel >= 3 && doubles && !bad)
-    {
-        goodies++
-    }
+   
     
 }
-Console.WriteLine(a+a)
-Console.WriteLine(goodies)
+Console.WriteLine(goodies);
+

@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="2015"/>
+    <Compile Remove="2015/*"/>
   </ItemGroup>
 
 </Project>
