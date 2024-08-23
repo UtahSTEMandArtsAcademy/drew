@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿
+using System.Runtime.InteropServices;
 
 string input = @" toggle 461,550 through 564,900
 turn off 370,39 through 425,839
@@ -300,36 +301,42 @@ turn off 210,146 through 221,482
 turn off 209,780 through 572,894
 turn on 766,112 through 792,868
 turn on 222,12 through 856,241";
-
-foreach(string cmd in input.Split('\n') )  
+ Light light = new Light();
+ Console.WriteLine(light.pos); 
+class Light
 {
-    string[] cmdParts = cmd.Split(' ');
-    string startStr = cmdParts[cmdParts.Length -3];
-    string endStr = cmdParts[cmdParts.Length -1];
-    Command command;
-    if(cmd.Contains("off")) command = Command.Off;
-    else if(cmd.Contains("on")) command = Command.On;
-    else if(cmd.Contains("toggle")) command = Command.Toggle;
-    else continue;
+    private bool state = false;
+    public Vector2 pos{get; private set;}
+    public void TurnOn() {state = true;}
+    public void TurnOff() {state = false;}
+    public void Toggle() {state = !state;}
+    public Light(Vector2 postion) {pos = postion;}
+    public Light() {pos = new Vector2();}
 
-    Console.WriteLine(cmd + " | " + command);
-
-    Pos start = new Pos()
+}
+class Board
+ {
+    static Vector2 size = new Vector2(1000,1000);
+    Light[] lights = new Light[size.x * size.y];
+    public Board() 
     {
-        x = 0,
-        y = 0
-
-    };
-}
-
-enum Command {
-    On,
-    Off,
-    Toggle
-}
-
-struct Pos
+        for(int i = 0; i < size.y; i++)
+        {
+            for(int j = 0; j < size.x; j++)
+            {
+                lights[i * size.x + j] = new Light(new Vector2(j,i));
+            }
+        }
+    }
+ }
+struct Vector2
 {
     public int x;
     public int y;
+    public Vector2(int x = 0, int y = 0) 
+    {
+        this.x = x;
+        this.y = y;
+    }
+    public override string ToString(){return $"({x},{y})";}
 }
