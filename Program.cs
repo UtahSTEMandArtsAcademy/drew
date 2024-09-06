@@ -13,6 +13,11 @@ for(int y = 0; y < 26; y++)
         letters.Add(pair);
     }
 }
+foreach(string cmd in input.Split("\n"))
+{
+    string[] parts = cmd.Split(" ");
+    
+}
 for(int i = 0; i < 26; i++){
     Console.WriteLine(string.Join(", ", letters.Slice(i * 27, 27)));
 }
