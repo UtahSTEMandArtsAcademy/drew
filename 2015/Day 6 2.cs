@@ -1,4 +1,4 @@
-﻿string input = @" toggle 461,550 through 564,900
+string input = @" toggle 461,550 through 564,900
 turn off 370,39 through 425,839
 turn off 464,858 through 833,915
 turn off 812,389 through 865,874
@@ -299,7 +299,7 @@ turn off 209,780 through 572,894
 turn on 766,112 through 792,868
 turn on 222,12 through 856,241";
  Board board = new Board();
- int lits = 0;
+ int total = 0;
  foreach(string cmd in input.Split("\n"))
  {
    string[] parts = cmd.Split(" ");
@@ -314,16 +314,16 @@ turn on 222,12 through 856,241";
  }
  foreach(Light light in board.lights)
    {
-        if(light.state){lits++;}
+        total += light.brightness;
    }
- Console.WriteLine(lits);
+ Console.WriteLine(total);
 class Light
 {
-    public bool state = false;
+    public int brightness = 0;
     public Vector2 pos{get; private set;}
-    public void TurnOn() {state = true;}
-    public void TurnOff() {state = false;}
-    public void Toggle() {state = !state;}
+    public void TurnOn() {brightness++;}
+    public void TurnOff() {brightness = Math.Max(brightness-1,0);}
+    public void Toggle() {brightness += 2;}
     public Light(Vector2 postion) {pos = postion;}
     public Light() {pos = new Vector2();}
 
