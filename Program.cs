@@ -1,7 +1,14 @@
-﻿string input = @"";
+﻿using System.Collections.Specialized;
+string input = @"x AND y -> d
+x OR y -> e
+x LSHIFT 2 -> f
+y RSHIFT 2 -> g
+NOT x -> h
+NOT y -> i
+123 -> x
+456 -> y";
+string[] cmds = input.Split('\n');
 Dictionary<string, ushort> wires = new();
-List<string> flagged = new();
-//while(){}
 static bool[] ConvertBA (ushort signal)
 {
     bool[] result = new bool[16];
@@ -53,12 +60,20 @@ static bool[] LShift(bool[] ba, int count)
 
     return LShift(ba, count - 1);
 }
-
-void DoCmd()
+void Remove(string target)
 {
-    
-    foreach(string cmd in input.Split("\n"))
+   StringCollection strings = new();
+   strings.AddRange(cmds);
+   strings.Remove(target);
+   cmds = new string[strings.Count];
+   strings.CopyTo(cmds, 0);
+}
+int maxRuns = 1000;
+void DoCmds()
+{
+    foreach(string cmd in cmds)
     {
+        Console.WriteLine(cmd);
         string[] parts = cmd.Split(" ");
 
         if(parts.Length == 3)
@@ -66,37 +81,64 @@ void DoCmd()
             string val = parts[0];
             string to = parts[2];
             wires[to] = ushort.Parse(val);
+            Console.WriteLine("assiged wire: " + to);
+            Remove(cmd);
         }
         else if(parts.Length == 4)
         {
-            string val = parts[1];
-            string to = parts[3];
-            wires[to] = ConvertUShort(Not(ConvertBA(ushort.Parse(val))));
+            
+            // Running the not bitwise opperand | NOT {val} -> {to}
+            string wire1 = parts[1];
+            string wireOut = parts[3];
+            if(!wires.ContainsKey(wire1))
+             {
+                Console.WriteLine("unknown  NOT wire: " + wire1);
+                
+                continue;
+             }
+            wires[wireOut] = ConvertUShort(Not(ConvertBA(wires[wire1])));
+            Remove(cmd);
         }
         else
         {
             string wireIn1 = parts[0];
             string wireIn2 = parts[2];
             if(!wires.ContainsKey(wireIn1))
-            {
-                flagged.Add(wireIn1); 
+             {
+                Console.WriteLine("unknown first wire: " + wireIn1);
                 continue;
-            }
+             }
             if(!wires.ContainsKey(wireIn2))
-            {
-                flagged.Add(wireIn2); 
+             {
+                Console.WriteLine("unknown second wire: " + wireIn2);
+
                 continue;
-            }
+             }
+             else
+             {
+                if
+             }
             string command = parts[1];
             string wireOut = parts[4];
             if(command == "RSHIFT") wires[wireOut] = ConvertUShort(RShift(ConvertBA(wires[wireIn1]), int.Parse(wireIn2)));
             if(command == "LSHIFT") wires[wireOut] = ConvertUShort(LShift(ConvertBA(wires[wireIn1]), int.Parse(wireIn2)));
-            if(command == "OR") wires[wireOut] = (ushort)(int.Parse(wireIn1) | int.Parse(wireIn2));
-            if(command == "AND") wires[wireOut] = (ushort)(int.Parse(wireIn1) & int.Parse(wireIn2));
+            if(command == "OR") wires[wireOut] = (ushort)(wires[wireIn1] | wires[wireIn2]);
+            if(command == "AND") wires[wireOut] = (ushort)(wires[wireIn1] & wires[wireIn2]);
+            Remove(cmd);
         }
     
     }
 }
+
+do
+{
+
+    if(--maxRuns <= 0) break;
+
+    DoCmds();
+}
+while(cmds.Length > 0);
+
 // for(int y = 0; y < 26; y++)
 // {
 //     for(int x = -1; x < 26; x++)
