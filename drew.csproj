@@ -11,4 +11,8 @@
     <Compile Remove="2015/*"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="2024/*"/>
+  </ItemGroup>
+
 </Project>

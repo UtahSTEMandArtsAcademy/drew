@@ -1,4 +1,4 @@
-﻿string input = @"37033   48086
+string input = @"37033   48086
 80098   34930
 88073   69183
 54342   63061
@@ -1005,13 +1005,27 @@ List<int> lNums = new();
 foreach (string sNum in sNumSet)
 {
     string[] parts = sNum.Split("   ");
-    lNums.Add(int.Parse(parts[0]));
-    rNums.Add(int.Parse(parts[1]));
+    for(int i = 0; i < parts.Length; i++)
+    {
+         nums.Add(int.Parse(parts[i]));
+        if(i % 2 == 0)
+        {
+            lNums.Add(int.Parse(parts[i]));
+        }
+        else
+        {
+            rNums.Add(int.Parse(parts[i]));
+        }
+    }
 }
-int score = 0;
+rNums.Sort();
+lNums.Sort();
+int diff = 0;
 for(int i = 0;i < rNums.Count; i++)
 {
-   
-    score += lNums[i] * rNums.Count(a => a == lNums[i]); 
+    
+    diff += (int)MathF.Abs(lNums[i] - rNums[i]); 
+    Console.WriteLine(rNums[i] + " " + lNums[i]);
+    Console.WriteLine(diff);
 }
-Console.WriteLine(score);
+
