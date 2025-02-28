@@ -1,5 +1,3 @@
-using System.Collections.Specialized;
-
 string input = @"NOT dq -> dr
 kg OR kf -> kh
 ep OR eo -> eq

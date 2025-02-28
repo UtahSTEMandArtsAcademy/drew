@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("drew")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8958e4b4534aacb5576841bc9aaaba0a73ff824")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1fbe5158da36fe9e77f21d81ab6c046ad5e604d")]
 [assembly: System.Reflection.AssemblyProductAttribute("drew")]
 [assembly: System.Reflection.AssemblyTitleAttribute("drew")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
